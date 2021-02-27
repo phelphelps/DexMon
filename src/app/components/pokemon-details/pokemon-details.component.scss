@@ -1,0 +1,28 @@
+@import '../../styles/colors.scss';
+@import '../../styles/flex.scss';
+
+h1 {
+  text-transform: capitalize;
+}
+
+.card-group {
+  width: 800px;
+  justify-content: center;
+
+  img {
+    width: 200px;
+    height: auto;
+  }
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.card-container {
+  box-shadow: 2px 2px 20px 0px rgb(0 0 0 / 8%);
+  margin: 8px;
+  padding: 8px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}

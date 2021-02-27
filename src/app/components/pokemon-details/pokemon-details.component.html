@@ -1,0 +1,17 @@
+<div>
+  <h3># {{pokemon?.id}}</h3>
+  <h1>{{pokemon?.name}}</h1>
+</div>
+<div class="side-by-side card-group">
+  <div class="card-container card-group">
+    <img [src]="pokemon?.photo" (load)="imageLoaded()">
+  </div>
+  <div class="columns card-group">
+    <div class="card-container">
+      <span>INFO</span>
+    </div>
+    <div class="card-container" [ngStyle]="{'background-color': pokemon?.color}">
+      <span>MOVES</span>
+    </div>
+  </div>
+</div>
