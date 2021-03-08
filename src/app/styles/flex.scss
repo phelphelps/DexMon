@@ -3,7 +3,19 @@
   flex-direction: row;
 }
 
-.columns {
+.wrap {
+  flex-wrap: wrap;
+}
+
+.column {
   display: flex;
   flex-direction: column;
+}
+
+.width-100 {
+  width: 100% !important;
+}
+
+.width-50 {
+  width: 50%;
 }
