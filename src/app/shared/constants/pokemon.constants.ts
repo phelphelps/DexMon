@@ -1,38 +1,47 @@
+export const POKEMON_MAX_STATS = {
+  HP: 255,
+  attack: 190,
+  defence: 250,
+  specialAttack: 194,
+  specialDefence: 250,
+  speed: 200
+}
+
 export const POKEMON_TYPES = {
   bug: {
-    backgroundColor: '#E3D985',
-    fontColor: '#000000'
+    backgroundColor: '#92BC2C',
+    fontColor: '#FFFFFF'
   } ,
   dark: {
-    backgroundColor: '#50514F',
+    backgroundColor: '#595761',
     fontColor: '#FFFFFF'
   } ,
   dragon: {
-    backgroundColor: '#574AE2',
+    backgroundColor: '#0C69C8',
     fontColor: '#FFFFFF'
   } ,
-  eletric: {
+  electric: {
     backgroundColor: '#F7B32B',
-    fontColor: '#000000'
+    fontColor: '#FFFFFF'
   } ,
   fairy: {
-    backgroundColor: '#FF8CC6',
-    fontColor: '#000000'
+    backgroundColor: '#EE90E6',
+    fontColor: '#FFFFFF'
   } ,
   fighting: {
     backgroundColor: '#481D24',
     fontColor: '#FFFFFF'
   } ,
   fire: {
-    backgroundColor: '#F72C25',
+    backgroundColor: '#D3425F',
     fontColor: '#FFFFFF'
   } ,
   flying: {
-    backgroundColor: '#8093F1',
+    backgroundColor: '#A1BBEC',
     fontColor: '#FFFFFF'
   } ,
   ghost: {
-    backgroundColor: '#19297C',
+    backgroundColor: '#5F6DBC',
     fontColor: '#FFFFFF'
   } ,
   grass: {
@@ -40,16 +49,16 @@ export const POKEMON_TYPES = {
     fontColor: '#FFFFFF'
   } ,
   ground: {
-    backgroundColor: '#FCF6B1',
-    fontColor: '#000000'
+    backgroundColor: '#DA7C4D',
+    fontColor: '#FFFFFF'
   } ,
   ice: {
-    backgroundColor: '#77B6EA',
-    fontColor: '#000000'
+    backgroundColor: '#75D0C1',
+    fontColor: '#FFFFFF'
   } ,
   normal: {
-    backgroundColor: '#E8EEF2',
-    fontColor: '#000000'
+    backgroundColor: '#A0A29F',
+    fontColor: '#FFFFFF'
   } ,
   poison: {
     backgroundColor: '#654597',
@@ -61,15 +70,15 @@ export const POKEMON_TYPES = {
   } ,
   rock: {
     backgroundColor: '#D5BF86',
-    fontColor: '#000000'
+    fontColor: '#FFFFFF'
   } ,
   shadow: {
     backgroundColor: '#102542',
     fontColor: '#FFFFFF'
   } ,
   steel: {
-    backgroundColor: '#F4EBE8',
-    fontColor: '#000000'
+    backgroundColor: '#5695A3',
+    fontColor: '#FFFFFF'
   } ,
   unknown: {
     backgroundColor: '#68B0AB',

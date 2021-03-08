@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+
+mat-toolbar {
+  @include mat-elevation(2);
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+
+  .title {
+    text-transform: capitalize;
+  }
+
+  button {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}

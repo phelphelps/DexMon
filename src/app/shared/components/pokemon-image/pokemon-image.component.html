@@ -1,0 +1,19 @@
+
+<div class="main">
+  <div class="pokemon-image-container">
+    <div class="circle" [ngStyle]="{'background-color': color}">
+      <ng-container *ngIf="!imageLoaded">
+        <div class="spinner">
+          <mat-spinner  [diameter]="30"></mat-spinner>
+        </div>
+      </ng-container>
+    </div>
+    <img class="image" [hidden]="!imageLoaded" [src]="imageUrl" [ngStyle]="compact && {'bottom': 0}" (load)="showImage()">
+  </div>
+</div>
+
+<!--templates-->
+
+<ng-template #loadingTemplate>
+ <mat-spinner [diameter]="30"></mat-spinner>
+</ng-template>

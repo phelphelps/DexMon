@@ -1,0 +1,47 @@
+@import '../../../styles/flex.scss';
+
+.circle-group-container {
+  display: flex;
+  margin: 80px 20px;
+  
+  .circle-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .chip {
+      border-radius: 20px;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+
+      span {
+        margin: 4px 6px;
+        text-transform: capitalize;
+      }
+
+
+      .circle-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        margin: 2px;
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .circle-group-container {
+    margin: 40px 20px;
+  }
+}

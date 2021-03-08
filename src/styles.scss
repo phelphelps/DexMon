@@ -1,7 +1,13 @@
 @import './app/styles/colors.scss';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@mdi/font/css/materialdesignicons.css';
 
 body {
   margin: 0 !important;
   background-color: $light-grey;
   font-family: 'Cabin', sans-serif;
+}
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
 }

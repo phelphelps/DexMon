@@ -1,1 +1,20 @@
-<p>home works!</p>
+<app-navbar></app-navbar>
+
+<div class="home-container column">
+  <app-discover-pokemon></app-discover-pokemon>
+  <strong>SEARCH</strong>
+  <app-search (pokemonFiltered)="showPokemon($event)"></app-search>
+  <ng-container *ngIf="hasSearchInput">
+    <ng-container *ngIf="pokemonNotFound; then PokemonNotFoundTemplate; else PokemonSummaryTemplate"></ng-container>
+  </ng-container>
+  
+  <!--templates-->
+  <ng-template #PokemonNotFoundTemplate>
+    <app-pokemon-not-found *ngIf="pokemonNotFound"></app-pokemon-not-found>
+  </ng-template>
+
+  <ng-template #PokemonSummaryTemplate>
+    <app-pokemon-summary [pokemonInfo]="pokemonInfo" (openPokemonInfo)="openPokemonInfo($event)"></app-pokemon-summary>
+  </ng-template>
+</div>
+

@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <ng-container *ngIf="showBackButton; then backButtonTemplate; else logoTemplate"></ng-container>
+  <span class="title">{{title}}</span>
+</mat-toolbar>
+
+<!--templates-->
+
+<ng-template #backButtonTemplate>
+  <button mat-icon-button (click)="backToHome()">
+    <span class="mdi mdi-arrow-left"></span>
+  </button>
+</ng-template>
+
+<ng-template #logoTemplate>
+  <img class="logo" [src]="'assets/icon.png'">
+</ng-template>

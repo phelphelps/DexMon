@@ -1,7 +1,9 @@
+import { PokemonService } from './../../shared/services/pokemon-service/pokemon.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { POKEMON_TYPES } from './../../shared/constants/pokemon.constants';
 import { Component, OnInit } from '@angular/core';
 import { PokemonInfo } from 'src/app/shared/interfaces/pokemon.interface';
-import { PokeApiService } from 'src/app/shared/services/poke-api.service';
+import { PokeApiService } from 'src/app/shared/services/poke-api-service/poke-api.service';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -11,83 +13,34 @@ import { PokeApiService } from 'src/app/shared/services/poke-api.service';
 export class PokemonDetailsComponent implements OnInit {
   public pokemon: PokemonInfo;
   private pokemonTypes: any = POKEMON_TYPES;
+  public pokemonId: string;
+  public themeColor: { backgroundColor: string; fontColor: string; };
+  public loading: boolean = true;
 
-  constructor(private pokemonAPI: PokeApiService) { }
+  constructor(
+    private pokemonAPI: PokeApiService,
+    private activatedRoute: ActivatedRoute,
+    private route: Router,
+    private pokemonService: PokemonService
+    ) { }
 
   async ngOnInit() {
-    await this.pokemonAPI.getPokemonInfo(2).then(res => {
+    this.pokemonId = this.activatedRoute.snapshot.paramMap.get('pokemonId')
+    await this.pokemonAPI.getPokemonInfo(this.pokemonId).then(res => {
       const { data: pokemon } = res;
-      this.createPokemonObject(pokemon);
-      this.getPokemonColor(2);
-      this.getPokemonTypesColor();
-    }).catch(() => console.log('ue'));
+      this.pokemon = this.pokemonService.createPokemonObject(pokemon, this.pokemonId);
+      this.themeColor = this.pokemonService.getThemeColor(this.pokemon);
+      this.loading = false;
+    }).catch((e) => console.log(e));
   }
 
-  private createPokemonObject(pokemon: any) {
-    const pokemonStats = pokemon.stats.map(statItem => {
-      const stat = {
-        baseStat: statItem.base_stat,
-        name: statItem.stat.name,
-        url: statItem.stat.url,
-        effort: statItem.effort
-      }
-      return stat
-    });
-
-    const pokemonAbilities = pokemon.abilities.map(abilityItem => {
-      const ability = {
-        name: abilityItem.ability.name,
-        url: abilityItem.ability.url
-      }
-      return ability
-    })
-
-    const pokemonSprites = {
-      backDefault: pokemon.back_default,
-      backFemale: pokemon.back_female,
-      backShiny: pokemon.back_shiny,
-      backShinyFemale: pokemon.back_shiny_female,
-      frontDefault: pokemon.front_default,
-      frontFemale: pokemon.front_female,
-      frontShiny: pokemon.front_shiny,
-      frontShinyFemale: pokemon.front_shiny_female
-    }
-
-    const pokemontypes = pokemon.types.map(typeItem => {
-      const type = {
-        name: typeItem.type.name,
-        url: typeItem.type.url
-      }
-      return type
-    })
-
-    this.pokemon = {
-      id: pokemon.id,
-      name: pokemon.species.name,
-      photo: `https://pokeres.bastionbot.org/images/pokemon/7.png`,
-      types: pokemontypes,
-      stats: pokemonStats,
-      abilities: pokemonAbilities,
-      sprites: pokemonSprites
-    }
-  console.log(this.pokemon)
-  }
-
-  imageLoaded() {
-    console.log('OK')
-  }
-
-  getPokemonColor(pokemonId: number) {
+  getPokemonColor(pokemonId: string) {
     this.pokemonAPI.getPokemonColor(pokemonId).then(res => {
       this.pokemon.color = res.data.name;
     })
   }
 
-  getPokemonTypesColor(){
-    this.pokemon.types.forEach(type => {
-      type['backgroundColor'] = this.pokemonTypes[type.name].backgroundColor;
-      type['fontColor'] = this.pokemonTypes[type.name].fontColor;
-    })
-    console.log(this.pokemon)
+  backToHome() {
+    this.route.navigateByUrl('/')
   }
 }

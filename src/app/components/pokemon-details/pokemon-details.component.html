@@ -1,17 +1,32 @@
-<div>
-  <h3># {{pokemon?.id}}</h3>
-  <h1>{{pokemon?.name}}</h1>
-</div>
-<div class="side-by-side card-group">
-  <div class="card-container card-group">
-    <img [src]="pokemon?.photo" (load)="imageLoaded()">
-  </div>
-  <div class="columns card-group">
-    <div class="card-container">
-      <span>INFO</span>
+<div class="card-group-container">
+  <ng-container *ngIf="!loading; else loadingTemplate">
+    <div class="side-by-side card-group">
+      <div class="card-container slide-in-bottom column width-30">
+        <app-pokemon-image [imageUrl]="pokemon?.photo" [color]="themeColor?.backgroundColor"></app-pokemon-image>
+        <app-pokemon-type-circle [types]="pokemon?.types"></app-pokemon-type-circle>
+      </div>
+
+      <div class="column width-70">
+        <div class="card-container slide-in-bottom column">
+          <strong>INFO</strong>
+          <app-pokemon-stats [color]="themeColor?.backgroundColor" [stats]="pokemon?.stats"></app-pokemon-stats>
+        </div>
+
+        <div class="card-container slide-in-bottom column" [ngStyle]="{'background-color': themeColor?.backgroundColor, 'color': themeColor?.fontColor}">
+          <strong>MOVES</strong>
+          <app-pokemon-moves [moves]="pokemon?.abilities"></app-pokemon-moves>
+        </div>
+      </div>
     </div>
-    <div class="card-container" [ngStyle]="{'background-color': pokemon?.color}">
-      <span>MOVES</span>
-    </div>
-  </div>
+  </ng-container>
 </div>
+
+<ng-template #loadingTemplate>
+  <div class="spinner-container">
+    <mat-spinner class="spinner" [diameter]="30"></mat-spinner>
+    <span>Loading pokemon info ...</span>
+  </div>
+
+</ng-template>
+
+

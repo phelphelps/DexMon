@@ -1,0 +1,19 @@
+<div class="stat-group column">
+  <div *ngFor="let stat of stats" class="stat-item">
+    <div class="stat-header">
+      <span class="mdi {{stat?.icon}} stat-label"></span>
+      <div class="column width-100">
+        <span class="stat-label">{{stat?.description | uppercase}}</span>
+        <div class="stat-bar-container">
+          <div class="stat-bar" [ngStyle]="{'width.%': stat?.percent, 'background-color': color}"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="stat-value" [ngStyle]="{'color': color}">
+      <span>{{stat?.baseStat}}</span>
+    </div>
+
+
+  </div>
+</div>

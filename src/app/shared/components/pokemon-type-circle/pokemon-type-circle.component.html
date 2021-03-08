@@ -1,0 +1,13 @@
+
+<div class="circle-group-container">
+  <div class="circle-group">
+    <div *ngFor="let type of types">
+      <div class="chip side-by-side " [ngStyle]="{'border': '2px solid '+type?.backgroundColor}">
+        <div class="circle-container" [ngStyle]="{'background-color': type?.backgroundColor}">
+          <img [src]="'assets/pokemon-types/'+type?.name+'.svg'">
+        </div>
+        <span [ngStyle]="{'color': type?.backgroundColor}">{{type?.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>

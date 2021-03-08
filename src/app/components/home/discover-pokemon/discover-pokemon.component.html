@@ -1,0 +1,30 @@
+<header class="side-by-side">
+  <strong>FIND NEW POKEMON</strong>
+  <button mat-icon-button matTooltip="Reload" matTooltipPosition="right" (click)="reloadPokemon()">
+    <span class="mdi mdi-reload"></span>
+  </button>
+</header>
+
+<div *ngIf="!false; else loadingTemplate;" class="side-by-side wrap chips-container">
+  <mat-chip-list *ngFor="let pokemon of pokemonList" >
+    <ng-container *ngTemplateOutlet="pokemonChipTemplate; context{ pokemon: pokemon }"></ng-container>
+  </mat-chip-list>
+</div>
+
+<!--templates-->
+
+<ng-template #pokemonChipTemplate let-pokemon="pokemon">
+  <mat-chip class="fade-in" [ngStyle]="{'background-color': pokemon?.color}" (click)="openPokemonInfo(pokemon?.id, pokemon?.name)">
+    <span>{{pokemon?.name}}</span>
+  </mat-chip>
+</ng-template>
+
+<ng-template #loadingTemplate>
+  <div class="spinner">
+    <mat-spinner [diameter]="25"></mat-spinner>
+    <span>Loading some cool pokemon :)</span>
+  </div>
+
+</ng-template>
+
+

@@ -1,0 +1,55 @@
+@import '../../../styles/flex.scss';
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+header {
+  align-items: center;
+  margin-bottom: 22px;
+  
+  button {
+    font-size: 20px;
+  }
+  
+  strong {
+    margin-right: 8px;
+  }
+}
+
+.chips-container {
+  min-height: 60px;
+}
+
+mat-chip-list {
+  margin-bottom: 28px;
+
+  mat-chip {
+    color: #FFFFFF;
+    margin-right: 16px;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 60px;
+
+  mat-spinner {
+    margin-right: 8px;
+  }
+}

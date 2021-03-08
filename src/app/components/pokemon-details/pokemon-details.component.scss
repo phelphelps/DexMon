@@ -1,28 +1,99 @@
 @import '../../styles/colors.scss';
 @import '../../styles/flex.scss';
 
-h1 {
-  text-transform: capitalize;
-}
-
-.card-group {
-  width: 800px;
-  justify-content: center;
-
-  img {
-    width: 200px;
-    height: auto;
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
   }
 }
 
-.width-50 {
-  width: 50%;
+.card-group-container {
+  display: flex;
+  justify-content: center;
+
+  .card-group {
+    width: 80%;
+
+    .card-container {
+      justify-content: center;
+      box-shadow: 2px 2px 20px 0px rgb(0 0 0 / 8%);
+      margin: 6px;
+      padding: 16px;
+      background-color: #FFFFFF;
+      border-radius: 4px;
+    }
+
+    .pokemon-image-container {
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      .circle {
+        width: 190px;
+        height: 190px;
+        border-radius: 50%;
+        background-color: black;
+      }
+
+      img {
+        position: absolute;
+        width: 200px;
+        height: auto;
+        bottom: -40px;
+      }
+    }
+  }
 }
 
-.card-container {
-  box-shadow: 2px 2px 20px 0px rgb(0 0 0 / 8%);
-  margin: 8px;
-  padding: 8px;
-  background-color: #FFFFFF;
-  border-radius: 6px;
+.width-70 {
+  width: 70%;
+}
+
+.width-30 {
+  width: 30%;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+
+  .spinner {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .column {
+    width: unset;
+  }
+  .width-35 {
+    width: unset;
+  }
+
+  .width-65 {
+    width: unset;
+  }
+
+  .side-by-side {
+    flex-direction: column !important;
+  }
+
+  .card-group {
+    width: unset;
+  }
+  
+  .slide-in-bottom {
+	  -webkit-animation: slide-in-bottom 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	  animation: slide-in-bottom 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
 }
