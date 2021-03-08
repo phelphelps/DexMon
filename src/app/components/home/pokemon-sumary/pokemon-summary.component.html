@@ -1,0 +1,31 @@
+
+<div class="main-container slide-in-bottom">
+  <div class="summary-container">
+    <div class="pokemon-image">
+      <app-pokemon-image [imageUrl]="pokemonInfo?.photo" [color]="themeColor?.backgroundColor" [compact]="true">
+      </app-pokemon-image>
+    </div>
+    
+    <div class="sumary-content column width-100">
+      <span class="pokemon-name">{{pokemonInfo?.name}}</span>
+      <div class="sprites">
+        <strong class="subtitle">SPRITES</strong>
+        <div class="side-by-side wrap">
+            <div *ngFor="let sprite of pokemonInfo?.sprites" class="sprite">
+              <ng-container *ngTemplateOutlet="SpriteTemplate; context: {sprite: sprite}"></ng-container>
+            </div>
+          </div>
+      </div>
+      <div class="action">
+        <button (click)="openInfo()" mat-stroked-button>INFO</button>
+      </div>
+    </div>
+  </div>
+
+  <!--templates-->
+
+  <ng-template #SpriteTemplate let-sprite="sprite">
+    <img [src]="sprite">
+  </ng-template>
+
+</div>
