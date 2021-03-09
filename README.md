@@ -7,6 +7,7 @@ Project developed on DIO Bootcamp.
 - Angular 
 - Axios 
 - Material Design (for Angular)
+- PokeAPI
 
 ## Running
 
