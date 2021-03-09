@@ -1,6 +1,6 @@
-import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
@@ -8,13 +8,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
-        data: {
-          title: 'DexMon'
-        }
+        component: HomeComponent
       }, {
         path: 'pokemon/:pokemonId',
-        loadChildren: () => import('../pokemon-details/pokemon-details.module').then(mod => mod.PokemonDetailsModule)
+        loadChildren: () => import('../../pokemon-details/pokemon-details.module').then(mod => mod.PokemonDetailsModule)
       }
     ]
   }

@@ -1,6 +1,5 @@
-import { NavbarModule } from './components/navbar/navbar.module';
+import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { PokemonDetailsModule } from './components/pokemon-details/pokemon-details.module';
-import { CardModule } from './shared/components/card/card.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule,
     PokemonDetailsModule,
     NavbarModule,
     AppRoutingModule,

@@ -2,6 +2,7 @@
 
 mat-toolbar {
   @include mat-elevation(2);
+  background-color: #FFFFFF;
   margin-bottom: 20px;
   position: fixed;
   top: 0;

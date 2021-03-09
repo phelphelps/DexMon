@@ -1,6 +1,6 @@
-import { PokemonInfo } from './../../shared/interfaces/pokemon.interface';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PokemonInfo } from '../../../shared/interfaces/pokemon.interface';
 
 @Component({
   selector: 'app-home',

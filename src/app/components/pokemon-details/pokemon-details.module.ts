@@ -1,5 +1,4 @@
 import { PokemonMovesModule } from './../pokemon-moves/pokemon-moves.module';
-import { PokemonTypeCircleModule } from './../../shared/components/pokemon-type-circle/pokemon-type-circle.module';
 import { PokemonImageModule } from './../../shared/components/pokemon-image/pokemon-image.module';
 import { PokemonDetailsRoutingModule } from './pokemon-details-routing.module';
 import { PokemonDetailsComponent } from './pokemon-details.component';
@@ -10,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatRippleModule } from '@angular/material/core';
 import { PokemonStatsModule } from '../pokemon-stats/pokemon-stats.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PokemonTypeCircleModule } from '../pokemon-type-circle/pokemon-type-circle.module';
 
 @NgModule({
   declarations: [PokemonDetailsComponent],

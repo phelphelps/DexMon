@@ -1,5 +1,5 @@
-import { Type } from './../../interfaces/pokemon.interface';
 import { Component, Input, OnInit } from '@angular/core';
+import { Type } from '../../shared/interfaces/pokemon.interface';
 
 @Component({
   selector: 'app-pokemon-type-circle',

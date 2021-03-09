@@ -21,7 +21,7 @@ export class DiscoverPokemonComponent {
     ) { }
 
   ngOnInit() {
-    this.getSomePokemon(6);
+    this.getSomePokemon(7);
   }
 
   getSomePokemon(nTimes: number) {
@@ -58,7 +58,7 @@ export class DiscoverPokemonComponent {
   reloadPokemon() {
     this.loading = true;
     this.pokemonList = [];
-    this.getSomePokemon(6);
+    this.getSomePokemon(7);
   }
 
   openPokemonInfo(pokemonId: string, pokemonName: string) {

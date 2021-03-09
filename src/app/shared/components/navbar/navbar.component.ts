@@ -1,6 +1,6 @@
-import { APPLICATION_NAME } from './../../shared/constants/general-constants';
+import { APPLICATION_NAME } from '../../constants/general-constants';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,8 +13,7 @@ export class NavbarComponent implements OnInit {
   public title: string;
 
   constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+    private router: Router
     ) {
     router.events.subscribe((routeInfo) => {
         if (routeInfo instanceof NavigationEnd) {

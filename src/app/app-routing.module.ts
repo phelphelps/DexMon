@@ -1,13 +1,13 @@
-import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [{
       path: '',
-      loadChildren: () => import('./components/home/home.module').then(mod => mod.HomeModule)
+      loadChildren: () => import('./components/home/home/home.module').then(mod => mod.HomeModule)
     }]
   }, {
     path: '**',

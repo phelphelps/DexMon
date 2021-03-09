@@ -1,5 +1,5 @@
 import { Stats } from './../../shared/interfaces/pokemon.interface';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { POKEMON_MAX_STATS } from 'src/app/shared/constants/pokemon.constants';
 
 @Component({
@@ -7,15 +7,13 @@ import { POKEMON_MAX_STATS } from 'src/app/shared/constants/pokemon.constants';
   templateUrl: './pokemon-stats.component.html',
   styleUrls: ['./pokemon-stats.component.scss']
 })
-export class PokemonStatsComponent implements OnInit {
+export class PokemonStatsComponent implements OnChanges {
 
   @Input() color: string;
   @Input() stats: (Stats)[];
   private maxStat = POKEMON_MAX_STATS;
 
-  constructor() { console.log(this.stats)}
-
-  ngOnInit(): void { }
+  constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.stats = changes.stats.currentValue;
@@ -61,13 +59,9 @@ export class PokemonStatsComponent implements OnInit {
             stat.description = 'Speed';
             stat.percent = this.calcStatPercent(this.maxStat.speed, stat.baseStat);
             break
-          
-
         }
       })
     }
-
-    console.log(this.stats)
   }
 
 }
