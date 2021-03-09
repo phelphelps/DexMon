@@ -1,6 +1,6 @@
 # DexMon
 
-Project developed on DIO Bootcamp.
+Project developed on DIO Bootcamp. You can search pokemon by their full name (or ID) to get basic info about them! You can also discover new pokemon on the "Discover" section.
 
 ## Tools
 
